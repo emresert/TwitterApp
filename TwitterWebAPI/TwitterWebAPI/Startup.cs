@@ -46,7 +46,7 @@ namespace TwitterWebAPI
             }
 
 
-            app.UseCors(options => options.WithOrigins("http://localhost:4200").AllowAnyMethod().AllowAnyHeader());
+            app.UseCors(options => options.WithOrigins("https://localhost:4200").AllowAnyMethod().AllowAnyHeader());
 
             app.Use(async (ctx, next) => {
                 await next();
