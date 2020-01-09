@@ -17,7 +17,7 @@ namespace TwitterWebAPI.Models
         [Column(TypeName = "nvarchar(280)")]
         public string tweetContent { get; set; }
         [Column(TypeName = "smalldatetime")]
-        public string tweetDate { get; set; }
+        public DateTime tweetDate { get; set; }
 
         [ForeignKey("userIdFk")]
         public User User { get; set; }
