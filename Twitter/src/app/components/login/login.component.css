@@ -58,7 +58,6 @@ margin: auto;
    
 }
 
-
 .forgetHover{
     cursor: pointer;
     text-decoration: none !important;
@@ -66,4 +65,43 @@ margin: auto;
 .forgetHover{
     font-size: 10px;
     color: #9da4aa ;
+}
+.rightpartFormRow{
+    display: -webkit-box !important;
+    -webkit-box-orient: horizontal;
+    width: auto;
+    
+}
+@media (max-width: 788px) { 
+    .rightpartFormRow{
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+  
+    }
+    .inputObject{
+        width: 100%;
+        margin-left: 3px;
+        margin-top: 3px;
+    }
+    .btnLogin{
+        float: right;
+        margin-top: 5px;
+        font-size: 13px;
+    }
+}
+@media (max-width: 1005px) { 
+    .rightpartFormRow{
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+    }
+    .inputObject{
+        width: 100%;
+        margin-left: 3px;
+        margin-top: 3px;
+    }
+    .btnLogin{
+        float: right;
+        margin-top: 5px;
+        font-size: 13px;
+    }
 }
