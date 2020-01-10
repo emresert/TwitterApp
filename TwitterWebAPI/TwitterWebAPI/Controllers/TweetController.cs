@@ -24,6 +24,7 @@ namespace TwitterWebAPI.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Tweet>>> GetTweets()
         {
+
             return await _context.Tweets.ToListAsync();
         }
 

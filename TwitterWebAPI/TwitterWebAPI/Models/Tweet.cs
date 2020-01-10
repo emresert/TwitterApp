@@ -16,6 +16,7 @@ namespace TwitterWebAPI.Models
 
         [Column(TypeName = "nvarchar(280)")]
         public string tweetContent { get; set; }
+
         [Column(TypeName = "smalldatetime")]
         public DateTime tweetDate { get; set; }
 

@@ -1,0 +1,39 @@
+.row{
+width:100%;
+margin: auto;
+}
+.leftPart{
+   background-color:#1da1f2 ;
+  
+}
+.rightPart{
+    height: 100vh;
+    background-color:white ;
+}
+.twitterIcon-bird{
+    position: absolute;
+    width: 120%;
+    margin-left: 40%;   
+}
+.leftPartItem{
+    padding-top: 10px;
+}
+.unOrderPart{
+    position: absolute;
+    padding-top: 35%;
+    padding-left: 20%;
+    font-size: 1em;
+
+}
+.list-group{
+    color: white;
+}
+.icons{
+    margin-top: 5px;
+    font-size: 2rem;
+}
+.texts{
+font-size: 1.1rem;
+padding-top: 2.5%;
+font-family:Verdana, Geneva, Tahoma, sans-serif;
+}
