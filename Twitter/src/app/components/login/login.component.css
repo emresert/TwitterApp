@@ -12,8 +12,8 @@ margin: auto;
 }
 .twitterIcon-bird{
     position: absolute;
-    width: 120%;
-    margin-left: 40%;   
+    width: 118%;
+    margin-left: 39%;   
 }
 .leftPartItem{
     padding-top: 10px;
@@ -43,7 +43,7 @@ margin: auto;
     border:1px solid#1da1f2 ;
     border-radius: 15px;
     font-weight: bolder;
-    font-family:"Segoe UI",Arial,sans-serif;;
+    font-family:"Segoe UI",Arial,sans-serif;
 }
 .btnLogin:hover{
     cursor: pointer !important;
@@ -57,7 +57,34 @@ margin: auto;
     text-align: left;
    
 }
+.loginRightContent{
+    margin-top: 20%;
+    margin-left: 10%;
+}
+.loginRightContent .row{
+    padding-left: 15%;
+}
 
+.btnSingUp{
+    border: 0px solid white !important;
+    background-color: #1da1f2 !important;
+}
+.btnSingUp:hover{
+    background-color: #007bff !important;
+}
+.btn-block{
+    width: 65%;
+    font-size: 15px;
+    border-radius: 100px;
+}
+.textOfRight{
+    font-weight: bold;
+    font-family: "Segoe UI",Arial,sans-serif;
+    width: 60%;
+}
+.textOfRightSize{
+    font-size: 27px;
+}
 .forgetHover{
     cursor: pointer;
     text-decoration: none !important;
@@ -70,14 +97,24 @@ margin: auto;
     display: -webkit-box !important;
     -webkit-box-orient: horizontal;
     width: auto;
-    
+}
+.fa-twitter{
+   color: #1da1f2 ;
+   font-size: 3em;
 }
 @media (max-width: 788px) { 
+    
     .rightpartFormRow{
         display: -webkit-box;
         -webkit-box-orient: vertical;
-  
     }
+    .loginRightContent{
+        margin-top: 40% !important;
+    }
+    .fa-twitter{
+        color: #1da1f2 ;
+        font-size: 2em;
+     }
     .inputObject{
         width: 100%;
         margin-left: 3px;
@@ -102,6 +139,25 @@ margin: auto;
     .btnLogin{
         float: right;
         margin-top: 5px;
+        font-size: 13px;
+    }
+    .loginRightContent{
+        margin-top: 10%;
+        margin-left: 10%;
+    }
+    .textOfRightSize{
+        font-size: 17px;
+    }
+}
+@media (max-width: 443px) { 
+    .btn-block{
+        width: 65%;
+        font-size: 10px;
+        border-radius: 100px;
+    }
+}
+@media (max-width: 320px) { 
+    .textOfRightSize{
         font-size: 13px;
     }
 }
