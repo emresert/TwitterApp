@@ -33,7 +33,37 @@ margin: auto;
     font-size: 2rem;
 }
 .texts{
-font-size: 1.1rem;
-padding-top: 2.5%;
-font-family:Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 1.1rem;
+    padding-top: 2.5%;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.btnLogin{
+    color:#1da1f2 ;
+    border:1px solid#1da1f2 ;
+    border-radius: 15px;
+    font-weight: bolder;
+    font-family:"Segoe UI",Arial,sans-serif;;
+}
+.btnLogin:hover{
+    cursor: pointer !important;
+    background-color: #f5f8fa !important;
+}
+
+.inputObject{
+    border: 0.5px solid #ced4da;
+    border-radius: 2px 2px !important;
+    font-size: 15px;
+    text-align: left;
+   
+}
+
+
+.forgetHover{
+    cursor: pointer;
+    text-decoration: none !important;
+}
+.forgetHover{
+    font-size: 10px;
+    color: #9da4aa ;
 }
