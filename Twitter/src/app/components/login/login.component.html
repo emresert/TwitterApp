@@ -57,13 +57,13 @@
         </div>
         <div class="rightPart col-6 test">
             <div class="rightpartForm">
-                <form action="">
+                <form #userLoginForm="ngForm" (ngSubmit)="getUser(userLoginForm)">
                     <div class="mt-5 rightpartFormRow">
-                        <div class="ml-2"><input type="text" class="form-control inputObject"
+                        <div class="ml-2"><input #inputUserLoginName="ngModel" [(ngModel)]="userModel.loginName" name="loginName" type="text" class="form-control inputObject"
                                 placeholder="Kullanıcı adı" aria-label="Username" aria-describedby="basic-addon1"></div>
-                        <div class="ml-2"> <input type="password" class="form-control inputObject"
+                        <div class="ml-2"> <input #inputUserPassword [ngModel]="userModel.password" name="password" type="password" class="form-control inputObject"
                                 placeholder="Password" aria-label="Username" aria-describedby="basic-addon1"></div>
-                        <div class="ml-2"><button type="button" class="btn btn-outline-primary btnLogin">Giriş
+                        <div class="ml-2"><button type="submit"  class="btn btn-outline-primary btnLogin">Giriş
                                 yap</button>
                         </div>
                     </div>
