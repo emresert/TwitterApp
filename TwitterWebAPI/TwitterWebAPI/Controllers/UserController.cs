@@ -29,9 +29,9 @@ namespace TwitterWebAPI.Controllers
 
         // GET: api/User/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<User>> GetUser(string id)
+        public async Task<ActionResult<User>> GetUser(int id)
         {
-            var user =  _context.Users.FirstOrDefault(u=>u.loginName == id);
+            var user = await _context.Users.FindAsync(id);
 
             if (user == null)
             {
