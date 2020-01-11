@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpErrorResponse , HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { User } from 'src/app/models/user';
 import { Observable, throwError } from 'rxjs';
-import {tap,catchError} from 'rxjs/operators';
-@Injectable() 
+import { tap, catchError } from 'rxjs/operators';
+@Injectable()
 
 export class LoginService {
 
@@ -19,26 +19,28 @@ export class LoginService {
   };
 
 
-constructor(private http: HttpClient) { }
-private apiUrl = "https://localhost:44365/api/user/";
+  constructor(private http: HttpClient) { }
+  private apiUrl = "https://localhost:44365/api/User/";
 
-getUser(userName:string): Observable<User> {
-  return this.http.get<User>(this.apiUrl+ userName,this.httpOptions).pipe(
-    tap(data=>console.log(JSON.stringify(data))),
-    catchError(this.handleError)
-  );
-}
-
-handleError(err:HttpErrorResponse) {
-  let errorMessages = '';
   
-  if (err.error instanceof ErrorEvent) {
-    errorMessages = "bir hata oluştu. " + err.error.message; 
+  
+  getUser(userLoginName: string):Observable<User> {
+  return  this.http.get<User>(this.apiUrl+ userLoginName,this.httpOptions).pipe(
+      tap(data => console.log(JSON.stringify(data))),
+      catchError(this.handleError)
+    );
   }
-  else{
-    errorMessages ="sistemsel bir hata oluştu";
+
+  handleError(err: HttpErrorResponse) {
+    let errorMessages = '';
+
+    if (err.error instanceof ErrorEvent) {
+      errorMessages = "bir hata oluştu. " + err.error.message;
+    }
+    else {
+      errorMessages = "sistemsel bir hata oluştu";
+    }
+    return throwError(errorMessages);
   }
-  return throwError(errorMessages); 
-}
 
 }

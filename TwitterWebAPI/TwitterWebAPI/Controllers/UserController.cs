@@ -28,10 +28,24 @@ namespace TwitterWebAPI.Controllers
         }
 
         // GET: api/User/5
-        [HttpGet("{id}")]
-        public async Task<ActionResult<User>> GetUser(int id)
+        //[HttpGet("{id}")]
+        //public async Task<ActionResult<User>> GetUser(int id)
+        //{
+        //    var user = await _context.Users.FindAsync(id);
+
+        //    if (user == null)
+        //    {
+        //        return NotFound();
+        //    }
+
+        //    return user;
+        //}
+        // GET: api/User/userLoginName
+        [HttpGet("{_LoginName}")]
+        public async Task<ActionResult<User>> GetUser(string _LoginName)
         {
-            var user = await _context.Users.FindAsync(id);
+            var userWithLogName = _context.Users.FirstOrDefault(u => u.loginName == _LoginName);
+            var user = await _context.Users.FindAsync(userWithLogName.userId);
 
             if (user == null)
             {

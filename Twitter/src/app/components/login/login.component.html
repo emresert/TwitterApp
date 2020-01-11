@@ -59,10 +59,10 @@
             <div class="rightpartForm">
                 <form #userLoginForm="ngForm" (ngSubmit)="getUser(userLoginForm)">
                     <div class="mt-5 rightpartFormRow">
-                        <div class="ml-2"><input #inputUserLoginName="ngModel" [(ngModel)]="userModel.loginName" name="loginName" type="text" class="form-control inputObject"
-                                placeholder="Kullanıcı adı" aria-label="Username" aria-describedby="basic-addon1"></div>
-                        <div class="ml-2"> <input #inputUserPassword [ngModel]="userModel.password" name="password" type="password" class="form-control inputObject"
-                                placeholder="Password" aria-label="Username" aria-describedby="basic-addon1"></div>
+                        <div class="ml-2"><input #inputUserLoginName="ngModel" [(ngModel)]="userModel.loginName" type="text" class="form-control inputObject"
+                                placeholder="Kullanıcı adı" aria-label="Username" aria-describedby="basic-addon1" name="loginName" ></div>
+                        <div class="ml-2"> <input #inputUserPassword [ngModel]="userModel.password" type="password" class="form-control inputObject"
+                                placeholder="Password" aria-label="Username" aria-describedby="basic-addon1" name="password" ></div>
                         <div class="ml-2"><button type="submit"  class="btn btn-outline-primary btnLogin">Giriş
                                 yap</button>
                         </div>
@@ -72,7 +72,7 @@
             <div class="loginRightContent">
                 <div class="row"><i class="fab fa-twitter"></i></div>
                 <div class="row mt-1 "><p class="textOfRight textOfRightSize">Şu anda dünyada neler olup bittiğini gör</p></div>
-                <div class="row mt-4 "><p class="textOfRight">Twitter'a bugün katıl.</p></div>
+                <div class="row mt-4 "><p class="textOfRight">Twitter'a bugkatılün .</p></div>
                 <div class="row "><button type="button" class="btn btn-primary btn-lg btn-block btnSingUp">Kaydol</button></div>
             </div>
         </div>

@@ -29,7 +29,8 @@ namespace TwitterWebAPI
         {
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
 
-            services.AddDbContext<TwitterAPIContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DevConnection")));
+            services.AddCors();      
+                services.AddDbContext<TwitterAPIContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DevConnection")));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -46,8 +47,8 @@ namespace TwitterWebAPI
             }
 
 
-            app.UseCors(options => options.WithOrigins("https://localhost:4200").AllowAnyMethod().AllowAnyHeader());
-
+            // app.UseCors(options => options.WithOrigins("https://localhost:4200").AllowAnyMethod().AllowAnyHeader());
+            app.UseCors(x => x.AllowAnyHeader().AllowAnyMethod().AllowAnyOrigin().AllowCredentials());
             app.Use(async (ctx, next) => {
                 await next();
                 if (ctx.Response.StatusCode == 204)
