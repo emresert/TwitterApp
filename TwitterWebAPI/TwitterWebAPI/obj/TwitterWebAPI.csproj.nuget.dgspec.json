@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Emre Sert\\Desktop\\TwitterApp\\TwitterApp\\TwitterWebAPI\\TwitterWebAPI\\TwitterWebAPI.csproj": {}
+    "C:\\Users\\BA\\Desktop\\TwtitterNew\\TwitterApp\\TwitterWebAPI\\TwitterWebAPI\\TwitterWebAPI.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Emre Sert\\Desktop\\TwitterApp\\TwitterApp\\TwitterWebAPI\\TwitterWebAPI\\TwitterWebAPI.csproj": {
+    "C:\\Users\\BA\\Desktop\\TwtitterNew\\TwitterApp\\TwitterWebAPI\\TwitterWebAPI\\TwitterWebAPI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Emre Sert\\Desktop\\TwitterApp\\TwitterApp\\TwitterWebAPI\\TwitterWebAPI\\TwitterWebAPI.csproj",
+        "projectUniqueName": "C:\\Users\\BA\\Desktop\\TwtitterNew\\TwitterApp\\TwitterWebAPI\\TwitterWebAPI\\TwitterWebAPI.csproj",
         "projectName": "TwitterWebAPI",
-        "projectPath": "C:\\Users\\Emre Sert\\Desktop\\TwitterApp\\TwitterApp\\TwitterWebAPI\\TwitterWebAPI\\TwitterWebAPI.csproj",
-        "packagesPath": "C:\\Users\\Emre Sert\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Emre Sert\\Desktop\\TwitterApp\\TwitterApp\\TwitterWebAPI\\TwitterWebAPI\\obj\\",
+        "projectPath": "C:\\Users\\BA\\Desktop\\TwtitterNew\\TwitterApp\\TwitterWebAPI\\TwitterWebAPI\\TwitterWebAPI.csproj",
+        "packagesPath": "C:\\Users\\BA\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\BA\\Desktop\\TwtitterNew\\TwitterApp\\TwitterWebAPI\\TwitterWebAPI\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\Emre Sert\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\BA\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -73,7 +73,7 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.100\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.0.100\\RuntimeIdentifierGraph.json"
         }
       }
     }

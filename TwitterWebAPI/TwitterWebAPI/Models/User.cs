@@ -10,12 +10,19 @@ namespace TwitterWebAPI.Models
     [Table("Users")]
     public class User
     {
+        public User()
+        
+        {
+            Tweets = new List<Tweet>(); 
+        }
+
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int userId { get; set; }
 
         [Column(TypeName = "nvarchar(25)")]
         [Required]
+
         public string userName { get; set; }
 
         [Column(TypeName = "nvarchar(25)")]
@@ -29,6 +36,14 @@ namespace TwitterWebAPI.Models
         [Column(TypeName = "nvarchar(8)")]
         [Required]
         public string password { get; set; }
+       
+        [Column(TypeName = "varbinary(max)")]
+        [Required]
+        public byte[] passwordHash { get; set; }
+        
+        [Column(TypeName = "varbinary(max)")]
+        [Required]
+        public byte[] passwordSalt { get; set; }
 
         [Column(TypeName = "nvarchar(max)")]
         [Required]

@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using TwitterWebAPI.Data;
 using TwitterWebAPI.Models;
 
 namespace TwitterWebAPI.Controllers
@@ -28,24 +29,10 @@ namespace TwitterWebAPI.Controllers
         }
 
         // GET: api/User/5
-        //[HttpGet("{id}")]
-        //public async Task<ActionResult<User>> GetUser(int id)
-        //{
-        //    var user = await _context.Users.FindAsync(id);
-
-        //    if (user == null)
-        //    {
-        //        return NotFound();
-        //    }
-
-        //    return user;
-        //}
-        // GET: api/User/userLoginName
-        [HttpGet("{_LoginName}")]
-        public async Task<ActionResult<User>> GetUser(string _LoginName)
+        [HttpGet("{id}")]
+        public async Task<ActionResult<User>> GetUser(int id)
         {
-            var userWithLogName = _context.Users.FirstOrDefault(u => u.loginName == _LoginName);
-            var user = await _context.Users.FindAsync(userWithLogName.userId);
+            var user = await _context.Users.FindAsync(id);
 
             if (user == null)
             {
@@ -94,6 +81,26 @@ namespace TwitterWebAPI.Controllers
 
             return CreatedAtAction("GetUser", new { id = user.userId }, user);
         }
+
+
+        [HttpPost]
+        [Route("login")]
+        public async Task<ActionResult<User>> LoginUser([FromBody]User _user)
+        {
+            var joinedUser = _context.Users.FirstOrDefault(u => u.loginName == _user.loginName && u.password == _user.password);
+
+            if (joinedUser == null)
+            {
+                return NotFound();
+            }
+
+            var user = await _context.Users.FindAsync(joinedUser.userId);
+            return CreatedAtAction("GetUser", new { id = _user.userId }, user);
+
+        }
+
+
+
 
         // DELETE: api/User/5
         [HttpDelete("{id}")]

@@ -11,8 +11,8 @@ using TwitterWebAPI.Models;
 namespace TwitterWebAPI.Migrations
 {
     [DbContext(typeof(TwitterAPIContext))]
-    [Migration("20200109182710_v1")]
-    partial class v1
+    [Migration("20200114144710_v2")]
+    partial class v2
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -32,9 +32,10 @@ namespace TwitterWebAPI.Migrations
                         .HasColumnType("nvarchar(280)");
 
                     b.Property<DateTime>("tweetDate")
-                        .HasColumnType("smalldatetime");
+                        .HasColumnType("datetime2");
 
-                    b.Property<int?>("userIdFk");
+                    b.Property<int>("userIdFk")
+                        .HasColumnType("int");
 
                     b.HasKey("tweetId");
 
@@ -64,6 +65,14 @@ namespace TwitterWebAPI.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(8)");
 
+                    b.Property<byte[]>("passwordHash")
+                        .IsRequired()
+                        .HasColumnType("varbinary(max)");
+
+                    b.Property<byte[]>("passwordSalt")
+                        .IsRequired()
+                        .HasColumnType("varbinary(max)");
+
                     b.Property<string>("userName")
                         .IsRequired()
                         .HasColumnType("nvarchar(25)");
@@ -81,7 +90,8 @@ namespace TwitterWebAPI.Migrations
                 {
                     b.HasOne("TwitterWebAPI.Models.User", "User")
                         .WithMany("Tweets")
-                        .HasForeignKey("userIdFk");
+                        .HasForeignKey("userIdFk")
+                        .OnDelete(DeleteBehavior.Cascade);
                 });
 #pragma warning restore 612, 618
         }

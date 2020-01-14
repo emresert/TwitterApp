@@ -9,7 +9,7 @@ export class LoginService {
 
   private httpOptions = {
     headers: new HttpHeaders({
-      'Content-Type': 'application/json',
+      'Content-Type': 'application/json;',
       'Authorization': 'bearer example',
       'Access-Control-Allow-Origin': '*',
       'Access-Control-Allow-Methods': '*',
@@ -19,13 +19,13 @@ export class LoginService {
   };
 
 
-  constructor(private http: HttpClient) { }
-  private apiUrl = "https://localhost:44365/api/User/";
+constructor(private http: HttpClient) { }
+private apiUrl = "https://localhost:44365/api/User/";
+private apiUrl2 = "https://localhost:44365/api/User/login"
+  
 
-  
-  
-  getUser(userLoginName: string):Observable<User> {
-  return  this.http.get<User>(this.apiUrl+ userLoginName,this.httpOptions).pipe(
+  LoginUser(userToSend:User):Observable<User> {
+  return  this.http.post<User>(this.apiUrl2,userToSend.loginName,this.httpOptions).pipe(
       tap(data => console.log(JSON.stringify(data))),
       catchError(this.handleError)
     );
