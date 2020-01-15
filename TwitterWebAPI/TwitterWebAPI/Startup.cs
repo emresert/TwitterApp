@@ -36,11 +36,13 @@ namespace TwitterWebAPI
             services.AddCors();
             services.AddDbContext<TwitterAPIContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DevConnection")));
             services.AddScoped<IAppRepository, AppRepository>();
+
+            services.AddScoped<IAuthRepository, AuthRepository>();
             services.AddAutoMapper();
 
 
             //  (key) appsettings.json 'da tanımlanmalıdır. 
-            var key = Encoding.ASCII.GetBytes(Configuration.GetSection("Appsettings:Token").Value);
+            var key = Encoding.ASCII.GetBytes(Configuration.GetSection("AppSettings:Token").Value);
 
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(
                options =>

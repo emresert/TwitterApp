@@ -65,7 +65,7 @@ namespace TwitterWebAPI.Controllers
 
         [HttpGet]
         [Route("tweetInfo")]
-        public ActionResult GetTweetUserInfo(int uid, int tid)
+        public ActionResult GetTweetAndUserInfo(int uid, int tid)
         {
             var user = _appRepository.GetUser(uid);
             var tweet = _appRepository.GetSelectedTweet(tid);
