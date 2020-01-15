@@ -14,9 +14,10 @@ namespace TwitterWebAPI.Data
 
         List<Tweet> GetTweets();
         List<Tweet> GetTweetsOfUser(int _userId);
-        List<Tweet> GetSelectedTweet(int _userId);
+        Tweet GetSelectedTweet(int _tweetId);
         User GetUser(int _userId);
         List<User> GetRecommendUsers(int _userId);
+      
 
     }
 }

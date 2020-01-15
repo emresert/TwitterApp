@@ -38,20 +38,63 @@ namespace TwitterWebAPI.Controllers
             new tweetForListDto 
             { tweetId = t.tweetId,tweetContent = t.tweetContent,
               tweetDate=t.tweetDate,userIdFk = t.userIdFk
-              
             }).ToList();
-
+            
             return Ok(tweets);
         }
 
-        [HttpPost]
-        [Route("add")] //api/Tweets/add yazarsa çalışsın
-        public ActionResult AddTweet([FromBody]Tweet tweet )
+        [HttpGet]
+        [Route("detail")]
+        public ActionResult GetTweet(int id)
         {
-            //Patterdeki metodlara entity gönderdik
+
+            var tweet = _appRepository.GetSelectedTweet(id);
+
+            return Ok(tweet);
+        }
+
+        [HttpGet]
+        [Route("mytweets")]
+        public ActionResult GetTweetofUser(int id)
+        {
+
+            var myTweet = _appRepository.GetTweetsOfUser(id);
+
+            return Ok(myTweet);
+        }
+
+        [HttpGet]
+        [Route("tweetInfo")]
+        public ActionResult GetTweetUserInfo(int uid, int tid)
+        {
+            var user = _appRepository.GetUser(uid);
+            var tweet = _appRepository.GetSelectedTweet(tid);
+            UserTweetInfoDto _utInfo = new UserTweetInfoDto()
+            {
+                userId = user.userId,
+                loginName = user.loginName,
+                userName = user.userName,
+                userSurname = user.userSurname,
+                userImageUrl = user.imageUrl,
+                tweetId = tweet.tweetId,
+                tweetContent = tweet.tweetContent,
+                tweetDate = tweet.tweetDate
+            };
+
+            return Ok(_utInfo);
+        }
+
+        [HttpPost]
+        [Route("add")] //api/Tweets/add 
+        public ActionResult AddTweet([FromBody]Tweet tweet)
+        {
+            //Patterndeki metodlara entity gönderdik
             _appRepository.Add(tweet);
             _appRepository.SaveAll();
             return Ok(tweet);
         }
+
+
+   
     }
 }

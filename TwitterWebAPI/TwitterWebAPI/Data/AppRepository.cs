@@ -24,16 +24,18 @@ namespace TwitterWebAPI.Data
             _context.Remove(entity);
         }
 
-        public List<Tweet> GetSelectedTweet(int id)
-        {
-            throw new NotImplementedException();
-        }
-
         public List<Tweet> GetTweets()
         {
             var tweets = _context.Tweets.ToList();
             
             return tweets;
+        }
+
+        public Tweet GetSelectedTweet(int tweetId)
+        {
+            var tweet = _context.Tweets.FirstOrDefault(t => t.tweetId == tweetId);
+
+            return tweet;
         }
 
         public List<Tweet> GetTweetsOfUser(int userId)
@@ -51,13 +53,6 @@ namespace TwitterWebAPI.Data
             return user;
         }
 
-    
-
-        public bool SaveAll()
-        {
-            return _context.SaveChanges() > 0;
-        }
-
         public List<User> GetRecommendUsers(int userId)
         {
             var recommendUsers = _context.Users.Where(u => u.userId !=
@@ -66,5 +61,12 @@ namespace TwitterWebAPI.Data
 
             return recommendUsers;
         }
+
+        public bool SaveAll()
+        {
+            return _context.SaveChanges() > 0;
+        }
+
+   
     }
 }
