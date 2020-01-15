@@ -16,6 +16,7 @@ using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
 using TwitterWebAPI.Data;
+using TwitterWebAPI.Helpers;
 using TwitterWebAPI.Models;
 
 namespace TwitterWebAPI
@@ -36,7 +37,7 @@ namespace TwitterWebAPI
             services.AddCors();
             services.AddDbContext<TwitterAPIContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DevConnection")));
             services.AddScoped<IAppRepository, AppRepository>();
-
+            services.Configure<CloudinarySettings>(Configuration.GetSection("CloudinarySettings"));
             services.AddScoped<IAuthRepository, AuthRepository>();
             services.AddAutoMapper();
 
