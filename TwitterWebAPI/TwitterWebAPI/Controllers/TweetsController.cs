@@ -89,6 +89,7 @@ namespace TwitterWebAPI.Controllers
         public ActionResult AddTweet([FromBody]Tweet tweet)
         {
             //Patterndeki metodlara entity gönderdik
+            tweet.tweetDate = DateTime.Now;
             _appRepository.Add(tweet);
             _appRepository.SaveAll();
             return Ok(tweet);

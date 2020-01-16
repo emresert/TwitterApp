@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Http;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -16,6 +17,7 @@ namespace TwitterWebAPI.Dtos
 
         public string email { get; set; }
 
+        public IFormFile file { get; set; }
         public string imageUrl { get; set; }
     }
 }

@@ -5,12 +5,16 @@ using System.Linq;
 using System.Security.Claims;
 using System.Text;
 using System.Threading.Tasks;
+using CloudinaryDotNet;
+using CloudinaryDotNet.Actions;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
 using TwitterWebAPI.Data;
 using TwitterWebAPI.Dtos;
+using TwitterWebAPI.Helpers;
 using TwitterWebAPI.Models;
 
 namespace TwitterWebAPI.Controllers
@@ -22,10 +26,17 @@ namespace TwitterWebAPI.Controllers
         private IAuthRepository _authRepository;
         IConfiguration _configuration;
 
-        public AuthController(IAuthRepository authRepository,IConfiguration configuration)
+        private IOptions<CloudinarySettings> _cloudinaryConfig;
+        Cloudinary _cloudinary;
+
+        public AuthController(IAuthRepository authRepository,IConfiguration configuration, IOptions<CloudinarySettings> cloudinarySettings)
         {
             _authRepository = authRepository;
             _configuration =  configuration;
+            _cloudinaryConfig = cloudinarySettings;
+           
+            Account account = new Account(_cloudinaryConfig.Value.CloudName, _cloudinaryConfig.Value.ApiSecret, _cloudinaryConfig.Value.ApiKey);
+            _cloudinary = new Cloudinary(account);
         }
 
         [HttpPost("register")]
@@ -41,15 +52,35 @@ namespace TwitterWebAPI.Controllers
                 return BadRequest();
             }
 
-            var userToCreate = new User()
+            var userToCreate = new User();
+            userToCreate.userName = userForRegisterDto.userName;
+            userToCreate.userSurname = userForRegisterDto.userSurname;
+            userToCreate.password = userForRegisterDto.password;
+            userToCreate.loginName = userForRegisterDto.userLoginName;
+            userToCreate.email = userForRegisterDto.email;
+            
+
+            var file = userForRegisterDto.file;
+            var uploadResult = new ImageUploadResult();
+
+
+            if (file.Length > 0) // dosya varsa
             {
-                userName = userForRegisterDto.userName,
-                userSurname = userForRegisterDto.userSurname,
-                password = userForRegisterDto.password,
-                loginName = userForRegisterDto.userLoginName,
-                email = userForRegisterDto.email,
-                imageUrl = userForRegisterDto.imageUrl
-            };
+                using (var stream = file.OpenReadStream())
+                {
+                    var uploadParams = new ImageUploadParams
+                    {
+                        File = new FileDescription(file.FileName, stream)
+                    };
+
+                    uploadResult = _cloudinary.Upload(uploadParams);
+                    userToCreate.imageUrl = uploadResult.Uri.ToString();
+                };
+            }
+            else
+            {
+                userToCreate.imageUrl = "..\\src\\assets\\img\\ppDefault.jpg";
+            }
 
             var createdUser = await _authRepository.Register(userToCreate, userForRegisterDto.password);
 
