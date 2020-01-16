@@ -19,11 +19,17 @@ export class LoginComponent implements OnInit {
   constructor(private authService: AuthService) { }
 
   ngOnInit() {
-   
+    //npm i rxjs-compat --save
   }
   LoginUser(form: NgForm) {
     this.authService.login(this.userLoginDtoModel);
   }
   
-  LogOutUser(){}
+  LogOutUser(){
+    this.authService.logOut()
+  }
+
+  get isAuthenticated(){
+   return this.authService.loggedIn();
+  }
 }  
