@@ -29,7 +29,9 @@
               "node_modules/@fortawesome/fontawesome-free/css/all.min.css",
               "./node_modules/alertifyjs/build/alertify.min.js" 
             ],
-            "scripts": []
+            "scripts": [
+              "./node_modules/alertifyjs/build/alertify.min.js"
+            ]
           },
           "configurations": {
             "production": {

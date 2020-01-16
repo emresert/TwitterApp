@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { LoginService } from './login.service';
-import { User } from 'src/app/models/user';
+
 import { NgForm } from '@angular/forms';
+import { UserLoginDto } from 'src/app/dto/userLoginDto';
+import { AuthService } from 'src/app/services/auth.service';
 declare let alertify: any;
 
 @Component({
@@ -12,17 +14,16 @@ declare let alertify: any;
 })
 export class LoginComponent implements OnInit {
 
-  userModel: User = new User();
-  user: User;
-  constructor(private loginService: LoginService) { }
+  userLoginDtoModel: UserLoginDto = new UserLoginDto();
+  token:any;
+  constructor(private authService: AuthService) { }
 
   ngOnInit() {
    
   }
   LoginUser(form: NgForm) {
-    this.loginService.LoginUser(this.userModel).subscribe(data => {
-      this.user = data;
-      console.log(this.user);
-    });
+    this.authService.login(this.userLoginDtoModel);
   }
+  
+  LogOutUser(){}
 }  

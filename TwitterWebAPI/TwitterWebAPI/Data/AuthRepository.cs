@@ -16,7 +16,7 @@ namespace TwitterWebAPI.Data
         }
         public async Task<User> Login(string userLoginName, string password)
         {
-            var user = await _context.Users.FirstOrDefaultAsync(u => u.loginName == userLoginName);
+            var user = await _context.Users.FirstOrDefaultAsync(u => u.loginName == userLoginName && u.password == password);
 
             if (user==null)
             {

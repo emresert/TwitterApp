@@ -58,29 +58,29 @@ namespace TwitterWebAPI.Controllers
             userToCreate.password = userForRegisterDto.password;
             userToCreate.loginName = userForRegisterDto.userLoginName;
             userToCreate.email = userForRegisterDto.email;
-            
+            userToCreate.imageUrl = "..\\src\\assets\\img\\ppDefault.jpg";
 
             var file = userForRegisterDto.file;
             var uploadResult = new ImageUploadResult();
 
 
-            if (file.Length > 0) // dosya varsa
-            {
-                using (var stream = file.OpenReadStream())
-                {
-                    var uploadParams = new ImageUploadParams
-                    {
-                        File = new FileDescription(file.FileName, stream)
-                    };
+            //if (file.Length > 0) // dosya varsa
+            //{
+            //    using (var stream = file.OpenReadStream())
+            //    {
+            //        var uploadParams = new ImageUploadParams
+            //        {
+            //            File = new FileDescription(file.FileName, stream)
+            //        };
 
-                    uploadResult = _cloudinary.Upload(uploadParams);
-                    userToCreate.imageUrl = uploadResult.Uri.ToString();
-                };
-            }
-            else
-            {
-                userToCreate.imageUrl = "..\\src\\assets\\img\\ppDefault.jpg";
-            }
+            //        uploadResult = _cloudinary.Upload(uploadParams);
+            //        userToCreate.imageUrl = uploadResult.Uri.ToString();
+            //    };
+            //}
+            //else
+            //{
+            //    userToCreate.imageUrl = "..\\src\\assets\\img\\ppDefault.jpg";
+            //}
 
             var createdUser = await _authRepository.Register(userToCreate, userForRegisterDto.password);
 
