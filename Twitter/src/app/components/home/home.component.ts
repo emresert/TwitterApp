@@ -8,18 +8,24 @@ import { Router } from '@angular/router';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-  private userTokenData:any;
+private userTokenData:any;
   constructor(private authService :AuthService,private router: Router) {
-    if (this.authService.userToken == undefined) {
-      this.router.navigateByUrl('login');
-    }
-    else{
-      this.userTokenData = this.authService.decodedUserToken;
-      console.log(this.userTokenData);
-    }
+  
    }
 
   ngOnInit() {
+    // Token varsa true döndürür ve home yüklenmeye devam eder yoksa 
+    // false döndürür ve login sayfasını yükler
+    if (this.isAuthenticated == false) {
+      this.router.navigateByUrl('login');
+    }
+   
   }
 
+  // get parametresi ile 
+  // Fonksiyondan dönen değeri property olarak almak.
+  // Login olma durumuna göre True/False döner
+  get isAuthenticated(){
+    return this.authService.loggedIn();
+   }
 }
