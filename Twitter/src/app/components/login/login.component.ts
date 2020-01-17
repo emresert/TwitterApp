@@ -1,26 +1,32 @@
 import { Component, OnInit } from '@angular/core';
-import { LoginService } from './login.service';
-
 import { NgForm } from '@angular/forms';
 import { UserLoginDto } from 'src/app/dto/userLoginDto';
 import { AuthService } from 'src/app/services/auth.service';
+import { Router } from '@angular/router';
 declare let alertify: any;
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css'],
-  providers: [LoginService]
+  styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
 
   userLoginDtoModel: UserLoginDto = new UserLoginDto();
-  token:any;
-  constructor(private authService: AuthService) { }
+  userTokenData:any;
+  constructor(private authService: AuthService,private router :Router) {
+    if (this.authService.userToken == undefined) {
+      this.router.navigateByUrl('login');
+    }
+    else{
+      this.userTokenData = this.authService.decodedUserToken;
+    }
+   }
 
   ngOnInit() {
-    //npm i rxjs-compat --save
+
   }
+  
   LoginUser(form: NgForm) {
     this.authService.login(this.userLoginDtoModel);
   }

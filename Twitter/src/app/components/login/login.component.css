@@ -102,6 +102,7 @@ margin: auto;
    color: #1da1f2 ;
    font-size: 3em;
 }
+
 @media (max-width: 788px) { 
     
     .rightpartFormRow{
