@@ -1,0 +1,47 @@
+.topPart{
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Ubuntu, "Helvetica Neue", sans-serif;
+    font-size: 19px;
+    font-weight: bolder;
+}
+.leftText{
+    text-align: left;
+}
+.rightText{
+   text-align: right;
+}
+.ppInTweetPart{
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+}
+.formTextAreaInput{
+    outline: none;
+    border: none;
+    width: 100%;
+    border: 1px solid white;
+    height: auto;
+    resize: none;
+    margin-left: 15px;
+    padding-top: 10px;
+}
+.tweetPartIcon{
+    padding-left: 10px;
+}
+.tweetPartIcon{
+    color: rgba(29,161,242,1.00);
+}
+.btnForTweet{
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Ubuntu, "Helvetica Neue", sans-serif;
+    float: right;
+    border:0px solid white;
+    border-radius: 100px;
+    background-color: rgba(29,161,242,1.00);
+    margin-right: 50px;
+    margin-top: -5px;
+    font-weight: bold;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+.btnForTweet:hover{
+    background-color: rgb(33, 143, 211) !important ;
+}

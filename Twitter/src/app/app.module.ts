@@ -10,13 +10,14 @@ import { FormsModule } from '@angular/forms';
 
 
 import { HomeComponent } from './components/home/home.component';
+import { IndexComponent } from './components/home/index/index/index.component';
 
 
 
 @NgModule({
   declarations: [
    AppComponent,
-   LoginComponent,HomeComponent
+   LoginComponent,HomeComponent,IndexComponent
   ],
   imports: [
     BrowserModule,

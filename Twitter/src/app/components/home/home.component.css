@@ -2,7 +2,7 @@
     height: 99vh !important;
 }
 .categoryLeft{
-  margin-top: 15px;
+  
 }
 .liItem{
     margin-top:20px;
@@ -23,7 +23,7 @@
 }
 .liItem{
     font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Ubuntu, "Helvetica Neue", sans-serif;
-    font-size: 20px;
+    font-size: 19px;
     font-weight: bold;
 }
 .description{
@@ -74,9 +74,9 @@ cursor: pointer;
     border-radius: 50px;
 }
 .btnForTweet{
-
     margin-top: 25px;
-    width: 90%;
+    margin-left: -15px;
+    width: 125%;
     border-radius: 50px;
     background-color: rgba(29,161,242,1.00) !important ;
     border: 0px solid white;
@@ -86,7 +86,7 @@ cursor: pointer;
     background-color: rgb(33, 143, 211) !important ;
 }
 
-@media (max-width:991px){
+@media (max-width:1199px){
  
     .liItem{
         font-size: 0px;
@@ -125,7 +125,7 @@ cursor: pointer;
     }
     
     .btnForTweet{
-        width: 27%; 
+        width: 30%; 
         height: 40px;
         margin-left: -5px;
         border-radius: 100px;
