@@ -19,7 +19,6 @@ private userTokenData:any;
     if (this.isAuthenticated == false) {
       this.router.navigateByUrl('login');
     }
-   
   }
 
   // get parametresi ile 

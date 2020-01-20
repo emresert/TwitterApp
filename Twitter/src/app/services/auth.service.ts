@@ -18,7 +18,6 @@ export class AuthService {
   TOKEN_KEY = "token"; 
   JwtHelper: JwtHelper = new JwtHelper(); 
 
-  
   constructor(private httpClient: HttpClient, private router: Router) { }
 
   login(loginUser: UserLoginDto) {

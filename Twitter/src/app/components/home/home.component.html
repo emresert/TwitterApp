@@ -1,7 +1,98 @@
 <div class="container">
-  <div class="row">
-    <div class="col-3">oldu heralde</div>
-    <div class="col-6"><router-outlet></router-outlet></div>
-    <div class="col-3">a</div>
+  <div class="categoryLeft">
+    <div class="row">
+      <div class="col-3">
+
+        <div class="liItem">
+          <div class="row">
+            <a routerLink="asayfasi" [routerLinkActiveOptions]="{exact:true}" routerLinkActive="active"
+              class="aLeftLink">
+              <span class=""><i class="fab fa-twitter icon"></i></span>
+            </a>
+          </div>
+        </div>
+
+        <div class="liItem">
+          <div class="row">
+            <a routerLink="asayfasi" [routerLinkActiveOptions]="{exact:true}" routerLinkActive="active"
+              class="aLeftLink">
+              <span class="description a"><i class="fas fa-home icon"></i>Anasayfa</span>
+            </a>
+          </div>
+        </div>
+
+        <div class="liItem">
+          <div class="row">
+            <a routerLink="asayfasi" [routerLinkActiveOptions]="{exact:true}" routerLinkActive="active"
+              class="aLeftLink">
+              <span class="description"><i class="fas fa-hashtag icon"></i> Keşfet</span>
+            </a>
+          </div>
+        </div>
+
+        <div class="liItem">
+          <div class="row">
+            <a routerLink="asayfasi" [routerLinkActiveOptions]="{exact:true}" routerLinkActive="active"
+              class="aLeftLink">
+              <span class="description"><i class="far fa-bell icon"></i> Bildirimler</span>
+            </a>
+          </div>
+        </div>
+
+        <div class="liItem">
+          <div class="row">
+            <a routerLink="asayfasi" [routerLinkActiveOptions]="{exact:true}" routerLinkActive="active"
+              class="aLeftLink">
+              <span class="description"> <i class="far fa-envelope icon"></i> Mesajlar</span>
+            </a>
+          </div>
+        </div>
+
+        <div class="liItem">
+          <div class="row">
+            <a routerLink="asayfasi" [routerLinkActiveOptions]="{exact:true}" routerLinkActive="active"
+              class="aLeftLink">
+              <span class="description"><i class="fas fa-location-arrow icon"></i> Yer İşaretleri</span>
+            </a>
+          </div>
+        </div>
+
+        <div class="liItem">
+          <div class="row">
+            <a routerLink="asayfasi" [routerLinkActiveOptions]="{exact:true}" routerLinkActive="active"
+              class="aLeftLink">
+              <span class="description"> <i class="fas fa-list-alt icon"></i> Listeler</span>
+            </a>
+          </div>
+        </div>
+
+        <div class="liItem">
+          <div class="row">
+            <a routerLink="asayfasi" [routerLinkActiveOptions]="{exact:true}" routerLinkActive="active"
+              class="aLeftLink">
+              <span class="imgSpan"> <img class="ppImg" src="../../../assets/img/ppDefault.jpg" alt=""> Profil</span>
+            </a>
+          </div>
+        </div>
+
+        <div class="liItem">
+          <div class="row">
+            <a routerLink="asayfasi" [routerLinkActiveOptions]="{exact:true}" routerLinkActive="active"
+              class="aLeftLink">
+              <span class="description"><i class="far fa-comment-dots icon"></i> Daha fazla</span>
+            </a>
+          </div>
+        </div>
+
+        <div class="">
+          <button type="button" class="btn btn-primary btnForTweet">Tweetle</button>
+        </div>
+      </div>
+
+      <div class="col-6">
+        <router-outlet></router-outlet>
+      </div>
+      <div class="col-3">sağ</div>
+    </div>
   </div>
 </div>
