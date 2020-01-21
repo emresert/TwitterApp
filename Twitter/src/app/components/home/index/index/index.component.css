@@ -1,13 +1,20 @@
+
 .topPart{
     font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Ubuntu, "Helvetica Neue", sans-serif;
-    font-size: 19px;
+    font-size: 20px;
     font-weight: bolder;
+    border-bottom: 1px solid rgb(231, 239, 243);
 }
 .leftText{
     text-align: left;
+    margin-left: 20px;
+    padding-bottom: 10px;
 }
 .rightText{
    text-align: right;
+}
+.tweetForm{
+    margin-left: 10px;
 }
 .ppInTweetPart{
     border-radius: 50%;
@@ -17,18 +24,23 @@
 .formTextAreaInput{
     outline: none;
     border: none;
+    resize: none;
     width: 100%;
     border: 1px solid white;
     height: auto;
-    resize: none;
     margin-left: 15px;
     padding-top: 10px;
 }
-.tweetPartIcon{
-    padding-left: 10px;
+.tweetPartRightBorder{
+    border-right: 1px solid rgb(231, 239, 243);
 }
 .tweetPartIcon{
     color: rgba(29,161,242,1.00);
+    border-bottom: 10px solid rgb(231, 239, 243);
+    padding-bottom: 10px;
+    padding-left: 50px !important;
+    padding-top: 5px;
+    
 }
 .btnForTweet{
     font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Ubuntu, "Helvetica Neue", sans-serif;
@@ -36,7 +48,7 @@
     border:0px solid white;
     border-radius: 100px;
     background-color: rgba(29,161,242,1.00);
-    margin-right: 50px;
+    margin-right: 0px;
     margin-top: -5px;
     font-weight: bold;
     padding-left: 15px;
@@ -45,3 +57,140 @@
 .btnForTweet:hover{
     background-color: rgb(33, 143, 211) !important ;
 }
+.welcomeText{
+    text-align: center;
+    font-size: 19px;
+    font-weight: bold;
+}
+.contentText{
+    text-align: center;
+    color: rgb(101,119,134)
+}
+.centeredButton{
+    margin-left: 42%;
+}
+.centeredBtn{
+    border-radius: 50px;
+    background-color: rgba(29,161,242,1.00);
+    border:0px solid white;
+    font-weight: bold;
+    padding-right:10px;
+    padding-left:10px;
+    padding-top:5px;
+    padding-bottom:5px;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Ubuntu, "Helvetica Neue", sans-serif;
+}
+.centeredBtn:hover{
+  
+    background-color: rgb(33, 143, 211) !important ;
+}
+.iconOfSearchbox{
+    position: absolute;
+    margin-top: 10%;
+    font-size: 15px;
+    margin-left: 10%;
+    color:rgb(101, 119, 134);
+}
+
+.searchBox {
+    background-color: rgba(230,236,240,1.00);
+    outline: none;
+    border: none;
+    width: 200%;
+    border: 1px solid white;
+    height: auto;
+    resize: none;
+    font-size: 14px;
+    padding: 12px 15px 12px 45px; 
+    margin-bottom: 12px; 
+    margin-top:4px;
+    border-radius: 50px;
+  }
+.rightCategory{
+    margin-top: 0px;
+    margin-left: 1%;
+    background-color: #f5f8fa;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+.descRightContent{
+    font-size: 19px;
+    font-weight: bolder;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Ubuntu, "Helvetica Neue", sans-serif;
+}
+  .setIcon{
+      float: right;
+      padding-top: 5px;
+      color: rgb(33, 143, 211);
+  }
+  .rightCategory{
+      width: 200%;
+     
+  }
+  .testRow{
+    font-weight: bold;
+    width: 200%;
+    margin-top: 0px;
+    margin-left: 1%;
+    background-color: #f5f8fa;
+    border-top: 1px solid #e6ecf0;
+    border-bottom:  1px solid #e6ecf0;
+    padding: 10px;
+  }
+
+  .testRowLast{
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+  }
+
+
+ .recommendedUserImg{
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+  }
+ .btnForFallow{
+    position: absolute;
+    border-radius: 50px;
+    font-size: 15px;
+    font-weight: bold;
+    margin-left: 105%;
+    background-color : white !important;
+    color: rgb(33, 143, 211) !important;
+    border: 1px solid rgb(33, 143, 211) !important;
+    
+}
+.btnForFallow:hover{
+    background-color : rgb(208, 231, 245) !important;
+}
+.testUser{
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  
+  @media(max-width : 1062px){
+
+    .rightContent , .rightCategory, .descRightContent ,
+    .iconOfSearchbox,.searchBox,.testRow,.testCol,.rmvcenteredBtn,
+    .recommendedUserImg
+    {
+       display:none;
+    }
+    .tweetPartRightBorder{
+        flex: 0 0 100% !important;
+    max-width: 100% !important;
+    }
+  }
+  @media(max-width : 767px){
+    .tweetForm,.topPart,.rightText, .leftText,.tweetPartIcon,.ppInTweetPart,.btnForTweet{
+      display: none;
+    } 
+    btnForTweet:hover{
+      display: none;
+    }
+  }
+  
