@@ -180,17 +180,25 @@
     {
        display:none;
     }
+
     .tweetPartRightBorder{
         flex: 0 0 100% !important;
-    max-width: 100% !important;
+        max-width: 100% !important;
     }
   }
   @media(max-width : 767px){
-    .tweetForm,.topPart,.rightText, .leftText,.tweetPartIcon,.ppInTweetPart,.btnForTweet{
+    .tweetForm,.topPart,
+    .rightText,.leftText,
+    .tweetPartIcon,.welcomeText,
+    .ppInTweetPart,.btnForTweet,
+    .contentText,.centeredBtn,.welcomeRow, 
+    .contentTextRow, .centeredButtonRow{
       display: none;
     } 
     btnForTweet:hover{
       display: none;
     }
+
+
   }
   
