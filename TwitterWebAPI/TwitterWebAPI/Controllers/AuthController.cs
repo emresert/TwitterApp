@@ -105,6 +105,7 @@ namespace TwitterWebAPI.Controllers
                 Subject = new ClaimsIdentity(new Claim[] {
                 new Claim(ClaimTypes.NameIdentifier,user.userId.ToString()),
                 new Claim(ClaimTypes.Name,user.loginName)
+             
                 }),
                 // Token süresi belirleme. Örn 1 gün.
                 Expires = DateTime.Now.AddDays(1),

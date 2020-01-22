@@ -69,7 +69,7 @@ export class AuthService {
   }
 
 
-  getCurrentUserId() {
+  getCurrentUserId(){
     return this.JwtHelper.decodeToken(this.Token).nameid;
   }
 

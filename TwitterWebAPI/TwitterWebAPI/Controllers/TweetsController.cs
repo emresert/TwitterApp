@@ -29,7 +29,8 @@ namespace TwitterWebAPI.Controllers
             _appRepository = appRepository;
             _mapper = mapper;
         }
-    
+
+        //  api/Tweets 
         public ActionResult GetTweets()
         {
             // Repositorydeki metodu çağırıp  dto için mapping yaptık.
@@ -42,7 +43,7 @@ namespace TwitterWebAPI.Controllers
             
             return Ok(tweets);
         }
-
+        // api/Tweets/detail/id
         [HttpGet]
         [Route("detail")]
         public ActionResult GetTweet(int id)
@@ -52,7 +53,7 @@ namespace TwitterWebAPI.Controllers
 
             return Ok(tweet);
         }
-
+        // api/Tweets/detail/id
         [HttpGet]
         [Route("mytweets")]
         public ActionResult GetTweetofUser(int id)
@@ -62,7 +63,7 @@ namespace TwitterWebAPI.Controllers
 
             return Ok(myTweet);
         }
-
+        // api/Tweets/tweetInfo/?uid=(userId)&tid=(tweetId)
         [HttpGet]
         [Route("tweetInfo")]
         public ActionResult GetTweetAndUserInfo(int uid, int tid)
@@ -84,12 +85,17 @@ namespace TwitterWebAPI.Controllers
             return Ok(_utInfo);
         }
 
+        // api/Tweets/add 
         [HttpPost]
-        [Route("add")] //api/Tweets/add 
-        public ActionResult AddTweet([FromBody]Tweet tweet)
+        [Route("add")] 
+        public ActionResult AddTweet([FromBody]tweetForAddDto _tweetForAddDto)
         {
             //Patterndeki metodlara entity gönderdik
+            Tweet tweet = new Tweet();
             tweet.tweetDate = DateTime.Now;
+            tweet.tweetContent = _tweetForAddDto.tweetContent;
+            tweet.userIdFk = _tweetForAddDto.userIdFk;
+
             _appRepository.Add(tweet);
             _appRepository.SaveAll();
             return Ok(tweet);

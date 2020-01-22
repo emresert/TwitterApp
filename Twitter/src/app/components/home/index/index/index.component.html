@@ -4,23 +4,27 @@
       <div class="col-4 leftText">Anasayfa</div>
       <div class="col-7 rightText"><i class="far fa-star"></i></div>
     </div>
-    <form action="">
+    <form #tweetCreateForm="ngForm" (ngSubmit)="addTweet(tweetCreateForm)">
       <div class="row tweetForm mt-3">
         <div class="col-1"><img class="ppInTweetPart" src="../../../../../assets/img/ppDefault.jpg" alt=""></div>
-        <div class="col-9 ml-2"> <textarea class="formTextAreaInput" placeholder="Neler Oluyor?"></textarea></div>
+        <div class="col-9 ml-2"> <textarea #tweetForSend="ngModel" [(ngModel)]="tweetForAddDto.tweetContent"
+           class="formTextAreaInput" placeholder="Neler Oluyor?"
+           name="tweetForSend" required></textarea></div>
       </div>
-
       <div class="row tweetPartIcon mt-3">
         <div class="col-1"></div>
         <div class="col-1"><i class="fas fa-camera"></i></div>
         <div class="col-1"><i class="far fa-image"></i></div>
         <div class="col-1"><i class="far fa-smile"></i></div>
         <div class="col-1"><i class="fas fa-chart-bar"></i></div>
-        <div class="col "><button type="button" class="btn btn-primary btnForTweet">Tweetle</button></div>
+        <div class="col "><button [disabled]="!tweetCreateForm.valid" type="submit"  class="btn btn-primary btnForTweet" >Tweetle</button></div>
       </div>
     </form>
 
-    
+
+
+
+<!--
     <div class="row mt-5 welcomeRow">
       <div class="col welcomeText">Twitter'a hoş geldin!</div>
     </div>
@@ -33,7 +37,7 @@
       </div>
     </div>
   </div>
-
+-->
   <div class="col-3 rightContent">
     <div class="row">
       <div class="col-12">

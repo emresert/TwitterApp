@@ -1,4 +1,3 @@
-import { Url } from 'url';
 import { Tweet } from './tweet';
 
 
