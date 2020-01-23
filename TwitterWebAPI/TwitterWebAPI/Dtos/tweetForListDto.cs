@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using TwitterWebAPI.Models;
 
 namespace TwitterWebAPI.Dtos
 {
@@ -11,5 +12,6 @@ namespace TwitterWebAPI.Dtos
         public string tweetContent { get; set; }
         public DateTime tweetDate { get; set; }
         public int userIdFk { get; set; }
+      
     }
 }

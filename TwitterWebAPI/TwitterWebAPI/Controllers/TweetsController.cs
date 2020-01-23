@@ -35,13 +35,29 @@ namespace TwitterWebAPI.Controllers
         {
             // Repositorydeki metodu çağırıp  dto için mapping yaptık.
             // Çünkü kullanıcının bazı alanları görmemesi gerekir.
-            var tweets = _appRepository.GetTweets().Select(t=>
-            new tweetForListDto 
-            { tweetId = t.tweetId,tweetContent = t.tweetContent,
-              tweetDate=t.tweetDate,userIdFk = t.userIdFk
-            }).ToList();
+            var tweets = _appRepository.GetTweets().ToList();
+
+            List<UserTweetInfoDto> _listOfuti = new List<UserTweetInfoDto>();
+            foreach (var tweet  in tweets)
+            {
+                var user = _appRepository.GetUser(tweet.userIdFk);
+                UserTweetInfoDto _uti = new UserTweetInfoDto() { 
+                userId = user.userId,
+                loginName = user.loginName,
+                userName = user.userName,
+                userSurname = user.userSurname,
+                userImageUrl = user.imageUrl,
+                tweetContent = tweet.tweetContent,
+                tweetDate = tweet.tweetDate,
+                tweetId = tweet.tweetId
+                };
+
+                _listOfuti.Add(_uti);
+            }
+
+           
             
-            return Ok(tweets);
+            return Ok(_listOfuti);
         }
         // api/Tweets/detail/id
         [HttpGet]

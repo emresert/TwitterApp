@@ -1,5 +1,5 @@
 <div class="row midPart">
-  <div class="col-9 tweetPartRightBorder">
+  <div class="col-8 tweetPartRightBorder">
     <div class="row topPart mt-2">
       <div class="col-4 leftText">Anasayfa</div>
       <div class="col-7 rightText"><i class="far fa-star"></i></div>
@@ -8,8 +8,7 @@
       <div class="row tweetForm mt-3">
         <div class="col-1"><img class="ppInTweetPart" src="../../../../../assets/img/ppDefault.jpg" alt=""></div>
         <div class="col-9 ml-2"> <textarea #tweetForSend="ngModel" [(ngModel)]="tweetForAddDto.tweetContent"
-           class="formTextAreaInput" placeholder="Neler Oluyor?"
-           name="tweetForSend" required></textarea></div>
+            class="formTextAreaInput" placeholder="Neler Oluyor?" name="tweetForSend" required></textarea></div>
       </div>
       <div class="row tweetPartIcon mt-3">
         <div class="col-1"></div>
@@ -17,27 +16,38 @@
         <div class="col-1"><i class="far fa-image"></i></div>
         <div class="col-1"><i class="far fa-smile"></i></div>
         <div class="col-1"><i class="fas fa-chart-bar"></i></div>
-        <div class="col "><button [disabled]="!tweetCreateForm.valid" type="submit"  class="btn btn-primary btnForTweet" >Tweetle</button></div>
+        <div class="col "><button [disabled]="!tweetCreateForm.valid" type="submit"
+            class="btn btn-primary btnForTweet">Tweetle</button></div>
       </div>
     </form>
 
+    <div  *ngFor="let tweet of userTweetInfo" class="row mt-2">
+      <div class="col-1">
+        <img class="ownerPhotoOfTweet" src="../../../../../assets/img/ppDefault.jpg" alt="">
+      </div>
+      <div class="col-9" *ngIf="userTweetInfo">
+        
+        <div class="col">{{tweet.userName}} {{tweet.surName }}{{tweet.loginName}} {{tweet.tweetDate | date : "fullDate"}} </div>
+        <div class="col">{{tweet.tweetContent}}</div>
 
-
-
-<!--
-    <div class="row mt-5 welcomeRow">
-      <div class="col welcomeText">Twitter'a hoş geldin!</div>
-    </div>
-    <div class="row mt-2 contentTextRow">
-      <div class="col contentText">Dünyanda olup bitenleri görmek için en iyi yer burası. Hemen takip edecek birkaç kişi
-        ve konu bul.</div>
-    </div>
-    <div class="row centeredButtonRow">
-      <div class="col mt-3 centeredButton"><button type="button" class="btn btn-primary centeredBtn">Haydi!</button>
+         
+        
+        <div class="col row iconsPart">
+          <span class="incons "><i class="far fa-comment"></i></span>
+          <span class="incons ml-5"><i class="fas fa-sync-alt"></i></span>
+          <span class="incons ml-5"><i class="far fa-heart"></i></span>
+          <span class="incons ml-5"><i class="fas fa-edit"></i></span>
+          <span class="incons ml-5"><i class="far fa-chart-bar"></i></span>
+        </div>
       </div>
     </div>
+
+   
+
+
+
   </div>
--->
+
   <div class="col-3 rightContent">
     <div class="row">
       <div class="col-12">

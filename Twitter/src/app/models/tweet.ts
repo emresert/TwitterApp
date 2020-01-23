@@ -4,5 +4,5 @@ export class Tweet {
     tweetId : number;
     tweetContent : string;
     tweetDate : Date;
-    userIdFk  : User;
+    User  : User;
 }

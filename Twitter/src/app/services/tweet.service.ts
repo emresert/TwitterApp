@@ -5,6 +5,7 @@ import { tap, catchError } from 'rxjs/operators';
 import { throwError, Observable } from 'rxjs';
 import { Tweet } from '../models/tweet';
 import { AuthService } from './auth.service';
+import { UserTweetInfoDto } from '../dto/userTweetInfoDto';
 declare let alertify: any;
 
 @Injectable()
@@ -23,12 +24,15 @@ export class TweetService {
   };
 
   tweet: TweetForAddDto = new TweetForAddDto();
-  tweets : Tweet[];
+  tweets:  Tweet[];
+
+  userTweetInfo : UserTweetInfoDto []= [];
+
   constructor(private http: HttpClient, private auth: AuthService) {
   }
 
- getTweets(): Observable<Tweet[]>{
-   return this.http.get<Tweet[]>(this.apiUrl,this.httpOptions);
+ getTweets(): Observable<UserTweetInfoDto[]>{
+   return this.http.get<UserTweetInfoDto[]>(this.apiUrl,this.httpOptions);
  }
 
 
