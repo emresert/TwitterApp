@@ -171,18 +171,31 @@
     text-overflow: ellipsis;
   }
 .ownerPhotoOfTweet{
-    width: 50px;
-    height: 50px;
+    width: 40px;
+    height: 40px;
     border-radius: 50%;
 }
+
+.tweetBody{
+    border-bottom: 10px solid rgb(231, 239, 243);
+    font-size: 13px;
+}
+.tweetDatePart{
+    font-size: 14px;
+}
+
 .iconsPart{
     margin:3px;
+    font-size: 20px !important;
 }
 .icons{
     padding-left: 3px;
 }
+.tweetContent{
+    font-size: 16px !important;
+}
   
-  @media(max-width : 1062px){
+@media(max-width : 1062px){
 
     .rightContent , .rightCategory, .descRightContent ,
     .iconOfSearchbox,.searchBox,.testRow,.testCol,.rmvcenteredBtn,

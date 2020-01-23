@@ -20,28 +20,42 @@
             class="btn btn-primary btnForTweet">Tweetle</button></div>
       </div>
     </form>
-
-    <div  *ngFor="let tweet of userTweetInfo" class="row mt-2">
+  
+    <div  *ngFor="let tweet of userTweetInfo" class="row mt-2 tweetBody">
       <div class="col-1">
         <img class="ownerPhotoOfTweet" src="../../../../../assets/img/ppDefault.jpg" alt="">
       </div>
-      <div class="col-9" *ngIf="userTweetInfo">
-        
-        <div class="col">{{tweet.userName}} {{tweet.surName }}{{tweet.loginName}} {{tweet.tweetDate | date : "fullDate"}} </div>
-        <div class="col">{{tweet.tweetContent}}</div>
+      <div class="col-11">
+        <div class="col row">
+          <div class="col-4"><b> {{tweet.userName}} {{tweet.userSurname }}</b></div> 
+          <div class="col-2">@{{tweet.loginName}}</div>
+          <div class="col-6 tweetDatePart">{{tweet.tweetDate | date : "fullDate"}}</div>  
+        </div>
 
-         
-        
+        <div class="col tweetContent">{{tweet.tweetContent}}</div>
         <div class="col row iconsPart">
-          <span class="incons "><i class="far fa-comment"></i></span>
-          <span class="incons ml-5"><i class="fas fa-sync-alt"></i></span>
           <span class="incons ml-5"><i class="far fa-heart"></i></span>
+          <span class="incons ml-5"><i class="far fa-comment"></i></span>
+          <span class="incons ml-5"><i class="fas fa-sync-alt"></i></span>
           <span class="incons ml-5"><i class="fas fa-edit"></i></span>
           <span class="incons ml-5"><i class="far fa-chart-bar"></i></span>
         </div>
       </div>
     </div>
 
+    <ng-template [ngIf]="tweetArrayIsEmpty"> 
+      <div class="row mt-5 welcomeRow">
+        <div class="col welcomeText">Twitter'a hoş geldin!</div>
+      </div>
+      <div class="row mt-2 contentTextRow">
+        <div class="col contentText">Dünyanda olup bitenleri görmek için en iyi yer burası. 
+          Hemen takip edecek birkaç kişi ve konu bul.
+        </div>
+      </div>
+      <div class="row centeredButtonRow">
+        <div class="col mt-3 centeredButton"><button type="button" class="btn btn-primary centeredBtn">Haydi!</button></div>
+      </div>
+    </ng-template>
    
 
 

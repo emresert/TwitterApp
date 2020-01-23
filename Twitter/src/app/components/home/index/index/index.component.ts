@@ -19,29 +19,32 @@ export class IndexComponent implements OnInit {
   tweets: Tweet[] = [];
   tweet : Tweet;
 
-  userTweetInfo : UserTweetInfoDto[]= [];
 
+  userTweetInfo : UserTweetInfoDto[]= [];
+ // userTweetInfo Dizisi get metodu ile çağırıldığında boş ise true değeri döndürür.
+  tweetArrayIsEmpty : boolean;
   constructor(private tweetService: TweetService) { }
 
   ngOnInit() {
-    this.getTweets();
+     this.getTweets();
   }
   getTweets() {
     this.tweetService.getTweets().subscribe(data => {
-      
-      this.userTweetInfo = data;
-      console.log("*/*/*/");
-      console.log(this.userTweetInfo);
-
+      if(data.length > 0){
+        this.tweetArrayIsEmpty = false;
+        this.userTweetInfo = data;
+      }
+      else{
+        this.tweetArrayIsEmpty = true;
+      }
     })
   }
 
   addTweet(form: NgForm) {
     this.tweetService.addTweet(this.tweetForAddDto).subscribe(savedTweet => {
-      this.tweets.push(savedTweet);
+      this.getTweets();
       alertify.success('Tweet eklendi.');
-      console.log("-*-*-");
-      console.log(this.tweets)
+      this.tweetArrayIsEmpty = false;
     })
   }
 }
