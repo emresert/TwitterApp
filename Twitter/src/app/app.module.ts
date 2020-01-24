@@ -11,6 +11,7 @@ import { FormsModule } from '@angular/forms';
 
 import { HomeComponent } from './components/home/home.component';
 import { IndexComponent } from './components/home/index/index/index.component';
+import {MatMenuModule} from '@angular/material/menu';
 
 
 
@@ -23,7 +24,7 @@ import { IndexComponent } from './components/home/index/index/index.component';
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,MatInputModule,
-    HttpClientModule,FormsModule
+    HttpClientModule,FormsModule,MatMenuModule
   ],
   providers: [],
   bootstrap: [AppComponent]

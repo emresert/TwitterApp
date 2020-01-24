@@ -19,8 +19,25 @@
     border-radius: 50%;
 }
 .fa-twitter:hover{
+    
   cursor: pointer;
     background-color:  rgb(231, 239, 243);
+}
+
+.brdBottomOfLogout{
+    border-bottom: .5px solid rgb(186, 192, 196);
+}
+.logOutIcon{
+    color: rgb(101, 119, 134);
+}
+.addIcon{
+    float: right;
+    font-size: 30px;
+}
+.ppLogOut{
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
 }
 .liItem{
     font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Ubuntu, "Helvetica Neue", sans-serif;

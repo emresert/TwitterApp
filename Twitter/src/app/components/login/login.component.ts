@@ -23,7 +23,6 @@ export class LoginComponent implements OnInit {
     if (this.isAuthenticated != false) {
       this.router.navigateByUrl('home');
     }
-    console.log(this.isAuthenticated)
   }
 
   // Form bilgilerini ve modeli post işlemi için servisdeki login metoduna gönder.
