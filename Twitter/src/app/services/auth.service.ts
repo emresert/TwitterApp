@@ -48,14 +48,15 @@ export class AuthService {
     })
   }
 
-
   saveToken(token) {
     localStorage.setItem(this.TOKEN_KEY, token); 
   }
 
-  
   logOut() {
+    let notice = this.JwtHelper.decodeToken(this.Token).unique_name.toString();
     localStorage.removeItem(this.TOKEN_KEY);
+    alertify.error(notice + ' hesabından çıkış yapıldı')
+    this.router.navigateByUrl('login');
   }
 
  

@@ -27,12 +27,15 @@
 .brdBottomOfLogout{
     border-bottom: .5px solid rgb(186, 192, 196);
 }
-.logOutIcon{
+.logOutIcons{
     color: rgb(101, 119, 134);
 }
-.addIcon{
+.closeIcon{
     float: right;
     font-size: 30px;
+}
+.closeIcon:hover{
+cursor: pointer;
 }
 .ppLogOut{
     width: 35px;

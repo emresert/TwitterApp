@@ -49,7 +49,10 @@ export class HomeComponent implements OnInit {
      
     }
   
-
+  logOut(){
+    this.authService.logOut();
+   
+  }
 
   get isAuthenticated() {
     return this.authService.loggedIn();
