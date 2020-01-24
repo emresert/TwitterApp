@@ -52,6 +52,9 @@ export class AuthService {
     localStorage.setItem(this.TOKEN_KEY, token); 
   }
 
+  // Giriş yapan kullanıcının local stroge alanından token'ı silinmesi
+  // Gerekir ayrıca çıkış yapıldıktan sonra router yönlenmesi yapılmalıdır
+  // Çıkış yapıldıktan sonra hata mesajı döndürüldü
   logOut() {
     let notice = this.JwtHelper.decodeToken(this.Token).unique_name.toString();
     localStorage.removeItem(this.TOKEN_KEY);

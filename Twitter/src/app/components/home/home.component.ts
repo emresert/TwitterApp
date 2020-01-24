@@ -12,6 +12,7 @@ import { NONE_TYPE } from '@angular/compiler/src/output/output_ast';
 
 export class HomeComponent implements OnInit {
 
+
   private styleOfOpenMenu: any;
 
   constructor(private authService: AuthService, private router: Router) {
@@ -26,6 +27,7 @@ export class HomeComponent implements OnInit {
     }
   }
 
+// Boolean parametre alan Method tanımlaması yapıldı.
   openMoreMenu(value: boolean) {
     if (value) {
       this.styleOfOpenMenu =
@@ -49,9 +51,9 @@ export class HomeComponent implements OnInit {
      
     }
   
+    // Servisdeki metoda ulaşmak için 
   logOut(){
     this.authService.logOut();
-   
   }
 
   get isAuthenticated() {
