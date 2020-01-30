@@ -18,6 +18,7 @@ export class AuthService {
   TOKEN_KEY = "token"; 
   JwtHelper: JwtHelper = new JwtHelper(); 
 
+
   constructor(private httpClient: HttpClient, private router: Router) { }
 
   login(loginUser: UserLoginDto) {
@@ -25,7 +26,6 @@ export class AuthService {
     let headers = new HttpHeaders();
     headers = headers.append("responseType", "text") 
 
-    
     this.httpClient.post(this.apiUrl + 'login', loginUser, { responseType: 'text' }).pipe(
       tap(data => console.log(JSON.stringify(this.JwtHelper.decodeToken(data.toString())))),
       catchError(this.handleError)
